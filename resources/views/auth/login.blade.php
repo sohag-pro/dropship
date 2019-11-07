@@ -1,6 +1,6 @@
 @extends('template.user')
 
-@section('title', 'Home')
+@section('title', 'Login')
 
 @section('type', 'profile')
 
