@@ -23,32 +23,76 @@
     <div class="section section-basic">
       <div class="container">
         <div class="row">
-          <div class="col-md-5">
-            <div class="form-group has-default">
-              <input type="text" class="form-control" placeholder="Link Here">
-            </div>
-          </div>
-          <div class="col-md-3">
-            <div class="form-group has-default">
-              <input type="number" class="form-control" placeholder="Quantity">
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="form-group has-default">
-              <input type="text" class="form-control" placeholder="Size / Color or Other Info">
-            </div>
-          </div>
+          <table id="myTable" class="text-center table order-list table-bordered table-hover">
+            <thead>
+              <tr>
+                <th width="5%"> # </th>
+                <th width="40%"> Link </th>
+                <th width="15%"> Quantity </th>
+                <th width="35%"> Description </th>
+                <th width="15%"> Action </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th>1</th>
+                <td>
+                    <input type="text" class="form-control" placeholder="Link Here-> https://www.amazon.co.uk/dp/B07PJV3JPR/">
+                </td>
+                <td>
+                    <input type="number" class="form-control" placeholder="Quantity">
+                </td>
+                <td>
+                    <input type="text" class="form-control" placeholder="Size / Color or Other Info">
+                </td>
+                <td><input type="button" class="ibtnDel btn btn-danger btn-sm" disabled value="Delete"></td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr>
+                <td colspan="5" class="text-center">
+                    <button id="addrow" class="btn btn-primary btn-sm">Add New Link</button>
+                </td>
+              </tr>
+            </tfoot>
+          </table>
         </div>
         <div class="row">
-          <div class="col-md-6 text-center">
-            <button class="btn btn-primary btn-sm">Add New Link</button>
-          </div>
-          <div class="col-md-6 text-center">
-            <button class="btn btn-success btn-sm">Request Quote</button>
-          </div>
+            <div class="col-md-12 text-right">
+                <button class="btn btn-success btn-sm">Request Quote</button>
+              </div>
         </div>
-        <div class="space-50"></div>
       </div>
     </div>
   </div>
+@endsection
+
+@section('custom_js')
+    <script>
+      $(document).ready(function() {
+        var counter = 0;
+        var limit = 100;
+        $("#addrow").on("click", function() {
+            counter = $('#myTable tr').length - 1;
+            var newRow = $("<tr>");
+            var cols = "";
+            cols += '<th>' + counter + '</th>';
+            cols += '<td><input type="text" class="form-control" placeholder="Link Here-> https://www.amazon.co.uk/dp/B07PJV3JPR/"></td>';
+            cols += '<td><input type="number" class="form-control" placeholder="Quantity"></td>';
+            cols += '<td><input type="text" class="form-control" placeholder="Size / Color or Other Info"></td>';
+            cols += '<td><input type="button" class="ibtnDel btn btn-danger btn-sm"  value="Delete"></td>';
+            newRow.append(cols);
+            if (counter >= limit) $('#addrow').attr('disabled', true).prop('value', "You've reached the limit");
+            $("table.order-list").append(newRow);
+            counter++;
+        });
+        $("table.order-list").on("click", ".ibtnDel", function(event) {
+            $(this).closest("tr").remove();
+            calculateGrandTotal();
+            counter -= 1
+            $('#addrow').attr('disabled', false).prop('value', "Add Row");
+        });
+    });
+    
+    </script>
 @endsection

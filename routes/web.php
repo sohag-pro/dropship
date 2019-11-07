@@ -13,10 +13,10 @@
 
 Route::get('/', function () {
     return view('home');
-});
+})->name('home');
 
 Route::resource('order', 'OrdersController');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index');
