@@ -81,7 +81,8 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    Ali Akbor Shihab <br>
+                    <small style="font-size: 40px">Mymensing</small>
                 </div>
 
                 <div class="links">
