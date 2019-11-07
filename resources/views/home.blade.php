@@ -23,16 +23,16 @@
 <div class="main main-raised">
     <div class="section section-basic">
         <div class="container">
-        <div class="title">
-            <h2>How to Order?</h2>
-        </div>
-        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ut non consectetur minima unde accusamus rerum quia, natus quaerat libero incidunt error similique reiciendis culpa! Culpa error debitis autem earum asperiores!Lorem
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quam cumque rem tempora magnam nulla eligendi fugit culpa accusantium blanditiis autem. Fugit eveniet omnis aut et necessitatibus quisquam nesciunt, voluptatem unde!</p>
-        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ut non consectetur minima unde accusamus rerum quia, natus quaerat libero incidunt error similique reiciendis culpa! Culpa error debitis autem earum asperiores!Lorem
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quam cumque rem tempora magnam nulla eligendi fugit culpa accusantium blanditiis autem. Fugit eveniet omnis aut et necessitatibus quisquam nesciunt, voluptatem unde!</p>
-        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ut non consectetur minima unde accusamus rerum quia, natus quaerat libero incidunt error similique reiciendis culpa! Culpa error debitis autem earum asperiores!Lorem
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quam cumque rem tempora magnam nulla eligendi fugit culpa accusantium blanditiis autem. Fugit eveniet omnis aut et necessitatibus quisquam nesciunt, voluptatem unde!</p>
-        <div class="space-50"></div>
+            <div class="title">
+                <h2>How to Order?</h2>
+            </div>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ut non consectetur minima unde accusamus rerum quia, natus quaerat libero incidunt error similique reiciendis culpa! Culpa error debitis autem earum asperiores!Lorem
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quam cumque rem tempora magnam nulla eligendi fugit culpa accusantium blanditiis autem. Fugit eveniet omnis aut et necessitatibus quisquam nesciunt, voluptatem unde!</p>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ut non consectetur minima unde accusamus rerum quia, natus quaerat libero incidunt error similique reiciendis culpa! Culpa error debitis autem earum asperiores!Lorem
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quam cumque rem tempora magnam nulla eligendi fugit culpa accusantium blanditiis autem. Fugit eveniet omnis aut et necessitatibus quisquam nesciunt, voluptatem unde!</p>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ut non consectetur minima unde accusamus rerum quia, natus quaerat libero incidunt error similique reiciendis culpa! Culpa error debitis autem earum asperiores!Lorem
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quam cumque rem tempora magnam nulla eligendi fugit culpa accusantium blanditiis autem. Fugit eveniet omnis aut et necessitatibus quisquam nesciunt, voluptatem unde!</p>
+            <div class="space-50"></div>
         </div>
     </div>
 </div>
