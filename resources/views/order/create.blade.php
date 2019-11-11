@@ -60,10 +60,10 @@
                             <input type="text" value="{{ old('link')[$i] }}" name="link[]" class="form-control" placeholder="Link Here-> https://www.amazon.co.uk/dp/B07PJV3JPR/">
                         </td>
                         <td>
-                            <input type="number" value="{{ old('qty')[$i] }}" name="qty[]" class="form-control" placeholder="Quantity">
+                            <input type="number" value="{{ old('qty')[$i] }}" min="1" name="qty[]" class="form-control" placeholder="Quantity">
                         </td>
                         <td>
-                            <input type="text" value="{{ old('description')[$i] }}" name="description[]" class="form-control" placeholder="Size / Color or Other Info">
+                            <input type="text" value="{{ old('description')[$i] }}"  name="description[]" class="form-control" placeholder="Size / Color or Other Info">
                         </td>
                         <td><input type="button" class="ibtnDel btn btn-danger btn-sm"  value="Delete"></td>
                       </tr>
@@ -75,7 +75,7 @@
                           <input type="text" name="link[]" class="form-control" placeholder="Link Here-> https://www.amazon.co.uk/dp/B07PJV3JPR/">
                       </td>
                       <td>
-                          <input type="number" name="qty[]" class="form-control" placeholder="Quantity">
+                          <input type="number" name="qty[]" min="1" value="1" class="form-control" placeholder="Quantity">
                       </td>
                       <td>
                           <input type="text" name="description[]" class="form-control" placeholder="Size / Color or Other Info">
@@ -115,7 +115,7 @@
             var cols = "";
             cols += '<th>' + counter + '</th>';
             cols += '<td><input type="text" name="link[]" class="form-control" placeholder="Link Here-> https://www.amazon.co.uk/dp/B07PJV3JPR/"></td>';
-            cols += '<td><input type="number" name="qty[]" class="form-control" placeholder="Quantity"></td>';
+            cols += '<td><input type="number" name="qty[]" min="1" value="1" class="form-control" placeholder="Quantity"></td>';
             cols += '<td><input type="text" name="description[]" class="form-control" placeholder="Size / Color or Other Info"></td>';
             cols += '<td><input type="button" class="ibtnDel btn btn-danger btn-sm"  value="Delete"></td>';
             newRow.append(cols);

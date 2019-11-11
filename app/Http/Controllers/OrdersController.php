@@ -9,7 +9,7 @@ use Auth;
 
 class OrdersController extends Controller
 {
-     /**
+    /**
      * Create a new controller instance.
      *
      * @return void
@@ -18,16 +18,14 @@ class OrdersController extends Controller
     {
         $this->middleware('auth');
     }
-    
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        
-    }
+    { }
 
     /**
      * Show the form for creating a new resource.
@@ -53,17 +51,36 @@ class OrdersController extends Controller
             'description.*' => 'nullable'
         ]);
         $order = new Order;
-        $order->user()->associate(Auth::id()); 
+        $order->status = 0;
+        $order->user()->associate(Auth::id());
         $order->save();
-
-        $link = $request->link; 
-        $qty = $request->qty; 
-        $des = $request->description; 
         // $quote  = new Quote;
         // $quote->order_id = $order->id;
         // $quote->link = $request->link;
         // $quote->qty = $request->qty;
         // $quote->description = $request->description;
+
+        $order_id = $order->id;
+        $link = $request->link;
+        $qty = $request->qty;
+        $des = $request->description;
+
+        $count = count($link);
+
+        for ($i = 0; $i < $count; $i++) {
+            $data = array(
+                'order_id' => $order_id,
+                'link' => $link[$i],
+                'qty' => $qty[$i],
+                'description' => $des[$i],
+                'created_at' => new \DateTime(),
+                'updated_at' => new \DateTime()
+            );
+
+            $insertData[] = $data;
+        }
+
+        Quote::insert($insertData);
     }
 
     /**

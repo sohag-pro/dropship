@@ -19,10 +19,12 @@ class CreateQuotesTable extends Migration
             $table->text('link');
             $table->integer('qty');
             $table->text('description')->nullable($value = true);
+            $table->text('shobgulo_link')->nullable($value = true);
             $table->integer('price_gbp')->nullable($value = true);
             $table->integer('postage_gbp')->nullable($value = true);
             $table->integer('tax_bdt')->nullable($value = true);
             $table->integer('price_bdt')->nullable($value = true);
+            $table->integer('remarks')->nullable($value = true);
             $table->timestamps();
 
             $table->foreign('order_id')->references('id')->on('orders')->onDelete('cascade');
