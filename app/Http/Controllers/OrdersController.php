@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Order;
+use Auth;
 
 class OrdersController extends Controller
 {
@@ -44,7 +46,11 @@ class OrdersController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $order = new Order;
+
+        $order->user()->associate(Auth::id()); 
+
+        $order->save();
     }
 
     /**

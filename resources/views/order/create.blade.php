@@ -22,46 +22,49 @@
 <div class="main main-raised">
     <div class="section section-basic">
       <div class="container">
-        <div class="row">
-          <table id="myTable" class="text-center table order-list table-bordered table-hover">
-            <thead>
-              <tr>
-                <th width="5%"> # </th>
-                <th width="40%"> Link </th>
-                <th width="15%"> Quantity </th>
-                <th width="35%"> Description </th>
-                <th width="15%"> Action </th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th>1</th>
-                <td>
-                    <input type="text" class="form-control" placeholder="Link Here-> https://www.amazon.co.uk/dp/B07PJV3JPR/">
-                </td>
-                <td>
-                    <input type="number" class="form-control" placeholder="Quantity">
-                </td>
-                <td>
-                    <input type="text" class="form-control" placeholder="Size / Color or Other Info">
-                </td>
-                <td><input type="button" class="ibtnDel btn btn-danger btn-sm" disabled value="Delete"></td>
-              </tr>
-            </tbody>
-            <tfoot>
-              <tr>
-                <td colspan="5" class="text-center">
-                    <button id="addrow" class="btn btn-primary btn-sm">Add New Link</button>
-                </td>
-              </tr>
-            </tfoot>
-          </table>
-        </div>
-        <div class="row">
-            <div class="col-md-12 text-right">
-                <button class="btn btn-success btn-sm">Request Quote</button>
-              </div>
-        </div>
+        <form action="{{ route('order.store') }}" method="post">
+          @csrf
+          <div class="row">
+            <table id="myTable" class="text-center table order-list table-bordered table-hover">
+              <thead>
+                <tr>
+                  <th width="5%"> # </th>
+                  <th width="40%"> Link </th>
+                  <th width="15%"> Quantity </th>
+                  <th width="35%"> Description </th>
+                  <th width="15%"> Action </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th>1</th>
+                  <td>
+                      <input type="text" class="form-control" placeholder="Link Here-> https://www.amazon.co.uk/dp/B07PJV3JPR/">
+                  </td>
+                  <td>
+                      <input type="number" class="form-control" placeholder="Quantity">
+                  </td>
+                  <td>
+                      <input type="text" class="form-control" placeholder="Size / Color or Other Info">
+                  </td>
+                  <td><input type="button" class="ibtnDel btn btn-danger btn-sm" disabled value="Delete"></td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <td colspan="5" class="text-center">
+                      <button id="addrow" class="btn btn-primary btn-sm">Add New Link</button>
+                  </td>
+                </tr>
+              </tfoot>
+            </table>
+          </div>
+          <div class="row">
+              <div class="col-md-12 text-right">
+                  <button type="submit" class="btn btn-success btn-sm">Request Quote</button>
+                </div>
+          </div>
+        </form>
       </div>
     </div>
   </div>
