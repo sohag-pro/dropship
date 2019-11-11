@@ -22,6 +22,22 @@
 <div class="main main-raised">
     <div class="section section-basic">
       <div class="container">
+          @if ($errors->any())
+          <div class="alert alert-danger alert-dismissible fade show" role="alert">
+              <h4 class="alert-heading">Ops! Errors!!</h4>
+              <ol>
+                  @foreach ($errors->all() as $error)
+                      <li>{{ $error }}</li>
+                  @endforeach
+              </ol>
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+              <hr>
+  <p class="mb-0">Please Fix these errors!</p>
+            </div>
+          @endif
+          
         <form action="{{ route('order.store') }}" method="post">
           @csrf
           <div class="row">
@@ -36,19 +52,37 @@
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <th>1</th>
-                  <td>
-                      <input type="text" name="link[]" class="form-control" placeholder="Link Here-> https://www.amazon.co.uk/dp/B07PJV3JPR/">
-                  </td>
-                  <td>
-                      <input type="number" name="qty[]" class="form-control" placeholder="Quantity">
-                  </td>
-                  <td>
-                      <input type="text" name="description[]" class="form-control" placeholder="Size / Color or Other Info">
-                  </td>
-                  <td><input type="button" class="ibtnDel btn btn-danger btn-sm" disabled value="Delete"></td>
-                </tr>
+                  @if (is_array(old('link')))
+                    @for ($i = 0; $i < count(old('link')); $i++)
+                      <tr>
+                        <th>{{ $i }}</th>
+                        <td>
+                            <input type="text" value="{{ old('link')[$i] }}" name="link[]" class="form-control" placeholder="Link Here-> https://www.amazon.co.uk/dp/B07PJV3JPR/">
+                        </td>
+                        <td>
+                            <input type="number" value="{{ old('qty')[$i] }}" name="qty[]" class="form-control" placeholder="Quantity">
+                        </td>
+                        <td>
+                            <input type="text" value="{{ old('description')[$i] }}" name="description[]" class="form-control" placeholder="Size / Color or Other Info">
+                        </td>
+                        <td><input type="button" class="ibtnDel btn btn-danger btn-sm"  value="Delete"></td>
+                      </tr>
+                    @endfor
+                  @else
+                    <tr>
+                      <th>0</th>
+                      <td>
+                          <input type="text" name="link[]" class="form-control" placeholder="Link Here-> https://www.amazon.co.uk/dp/B07PJV3JPR/">
+                      </td>
+                      <td>
+                          <input type="number" name="qty[]" class="form-control" placeholder="Quantity">
+                      </td>
+                      <td>
+                          <input type="text" name="description[]" class="form-control" placeholder="Size / Color or Other Info">
+                      </td>
+                      <td><input type="button" class="ibtnDel btn btn-danger btn-sm" disabled value="Delete"></td>
+                    </tr>
+                  @endif
               </tbody>
               <tfoot>
                 <tr>
@@ -76,7 +110,7 @@
         var counter = 0;
         var limit = 100;
         $("#addrow").on("click", function() {
-            counter = $('#myTable tr').length - 1;
+            counter = $('#myTable tr').length - 2;
             var newRow = $("<tr>");
             var cols = "";
             cols += '<th>' + counter + '</th>';
