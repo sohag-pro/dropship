@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateQuotesTable extends Migration
+class CreateOrdersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,11 @@ class CreateQuotesTable extends Migration
      */
     public function up()
     {
-        Schema::create('quotes', function (Blueprint $table) {
+        Schema::create('orders', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('user_id')->unsigned();
+            $table->text('shippingcharge')->nullable($value = true);
+            $table->integer('exchange_rate')->nullable($value = true);
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
@@ -29,9 +31,9 @@ class CreateQuotesTable extends Migration
      */
     public function down()
     {
-        Schema::table('quotes', function (Blueprint $table) {
-            $table->dropForeign('quotes_user_id_foreign');
+        Schema::table('orders', function (Blueprint $table) {
+            $table->dropForeign('orders_user_id_foreign');
         });
-        Schema::dropIfExists('quotes');
+        Schema::dropIfExists('orders');
     }
 }

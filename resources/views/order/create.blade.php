@@ -39,13 +39,13 @@
                 <tr>
                   <th>1</th>
                   <td>
-                      <input type="text" class="form-control" placeholder="Link Here-> https://www.amazon.co.uk/dp/B07PJV3JPR/">
+                      <input type="text" name="link[]" class="form-control" placeholder="Link Here-> https://www.amazon.co.uk/dp/B07PJV3JPR/">
                   </td>
                   <td>
-                      <input type="number" class="form-control" placeholder="Quantity">
+                      <input type="number" name="qty[]" class="form-control" placeholder="Quantity">
                   </td>
                   <td>
-                      <input type="text" class="form-control" placeholder="Size / Color or Other Info">
+                      <input type="text" name="description[]" class="form-control" placeholder="Size / Color or Other Info">
                   </td>
                   <td><input type="button" class="ibtnDel btn btn-danger btn-sm" disabled value="Delete"></td>
                 </tr>
@@ -53,7 +53,7 @@
               <tfoot>
                 <tr>
                   <td colspan="5" class="text-center">
-                      <button id="addrow" class="btn btn-primary btn-sm">Add New Link</button>
+                      <button type="button" id="addrow" class="btn btn-primary btn-sm">Add New Link</button>
                   </td>
                 </tr>
               </tfoot>
@@ -80,9 +80,9 @@
             var newRow = $("<tr>");
             var cols = "";
             cols += '<th>' + counter + '</th>';
-            cols += '<td><input type="text" class="form-control" placeholder="Link Here-> https://www.amazon.co.uk/dp/B07PJV3JPR/"></td>';
-            cols += '<td><input type="number" class="form-control" placeholder="Quantity"></td>';
-            cols += '<td><input type="text" class="form-control" placeholder="Size / Color or Other Info"></td>';
+            cols += '<td><input type="text" name="link[]" class="form-control" placeholder="Link Here-> https://www.amazon.co.uk/dp/B07PJV3JPR/"></td>';
+            cols += '<td><input type="number" name="qty[]" class="form-control" placeholder="Quantity"></td>';
+            cols += '<td><input type="text" name="description[]" class="form-control" placeholder="Size / Color or Other Info"></td>';
             cols += '<td><input type="button" class="ibtnDel btn btn-danger btn-sm"  value="Delete"></td>';
             newRow.append(cols);
             if (counter >= limit) $('#addrow').attr('disabled', true).prop('value', "You've reached the limit");
