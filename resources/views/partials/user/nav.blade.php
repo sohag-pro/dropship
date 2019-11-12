@@ -41,7 +41,7 @@
                     {{ Auth::user()->name }}
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <a href="profile.html" class="nav-link">
+                    <a href="{{ route('profile.index') }}" class="nav-link">
                       <i class="material-icons">person</i> My Profile
                     </a>
                     <a href="order.html" class="nav-link">

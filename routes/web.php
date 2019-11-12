@@ -16,6 +16,7 @@ Route::get('/', function () {
 })->name('home');
 
 Route::resource('order', 'OrdersController');
+Route::resource('profile', 'ProfileController');
 
 Auth::routes();
 
