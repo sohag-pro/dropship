@@ -44,7 +44,7 @@
                     <a href="{{ route('profile.index') }}" class="nav-link">
                       <i class="material-icons">person</i> My Profile
                     </a>
-                    <a href="order.html" class="nav-link">
+                    <a href="{{ route('order.index') }}" class="nav-link">
                       <i class="material-icons">shopping_basket</i> My Orders
                     </a>
                   <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
