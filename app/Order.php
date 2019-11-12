@@ -11,7 +11,7 @@ class Order extends Model
         return $this->belongsTo('App\User');
     }
 
-    public function quote(){
+    public function quotes(){
         return $this->hasMany('App\Quote');
     }
 }

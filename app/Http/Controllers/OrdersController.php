@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Order;
 use App\Quote;
 use Auth;
+use Illuminate\Support\Facades\DB;
+
 
 class OrdersController extends Controller
 {
@@ -26,7 +28,8 @@ class OrdersController extends Controller
      */
     public function index()
     { 
-        return view('order.index');
+        $orders = DB::table('orders')->get();
+        return view('order.index', ['orders' => $orders]);
     }
 
     /**
@@ -84,7 +87,7 @@ class OrdersController extends Controller
 
         Quote::insert($insertData);
 
-        return view('order.index');
+        return redirect()->action('OrdersController@index');
     }
 
     /**
@@ -95,7 +98,8 @@ class OrdersController extends Controller
      */
     public function show($id)
     {
-        //
+        $order = Order::findOrFail($id);
+        return view('order.show')->with('order', $order);
     }
 
     /**

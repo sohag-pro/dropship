@@ -23,6 +23,66 @@
     <div class="section section-basic">
       <div class="container">
         <h1>All orders</h1>
+        <table class="table table-bordered text-center table-hover">
+          <thead>
+            <tr>
+              <td>Order Number</td>
+              <td>Status</td>
+              <td>Price GBP</td>
+              <td>Price BDT</td>
+              <td>Details</td>
+            </tr>
+          </thead>
+          @php
+              function statusCheck($status){
+                  switch ($status) {
+                    case "0":
+                        echo "Quote Requested";
+                        break;
+                    case "1":
+                        echo "Payment Pending";
+                        break;
+                    case "2":
+                        echo "Payment Done";
+                        break;
+                    case "3":
+                        echo "Order Processing";
+                        break;
+                    case "4":
+                        echo "Order Placed";
+                        break;
+                    case "5":
+                        echo "Partially Arrived";
+                        break;
+                    case "6":
+                        echo "Full Arrived";
+                        break;
+                    case "7":
+                        echo "Delivered";
+                        break;
+                    case "8":
+                        echo "Cancelled";
+                        break;
+                    case "9":
+                        echo "Refunded";
+                        break;
+                    default:
+                        echo "Error!";
+                }
+              }
+          @endphp
+          <tbody>
+            @foreach ($orders as $order)
+              <tr>
+                <td>{{ $order->id }}</td>
+                <td>{{ statusCheck($order->status) }}</td>
+                <td>{{ $order->price_gbp ? $order->price_gbp : 'Not yet given' }}</td>
+                <td>{{ $order->price_bdt ? $order->price_bdt : 'Not yet given' }}</td>
+                <td> <a class="btn btn-sm btn-success" href="{{ route('order.show', $order->id) }}">Details</a></td>
+              </tr>
+            @endforeach
+          </tbody>
+        </table>
       </div>
     </div>
   </div>
