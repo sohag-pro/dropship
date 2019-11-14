@@ -78,6 +78,7 @@
             <tr>
               <th>Link</th>
               <th>Qty</th>
+              <th>Description</th>
               @if ($order-> status != 0)
                 <th>Price GBP</th>
                 <th><abbr title="Postage is UK to UK delivery charge taken by the website you are ordering from."> Postage</abbr> GBP</th>
@@ -92,13 +93,17 @@
                 <tr>
                   <td> <a class="btn btn-outline-success" href="{{ $quote->link }}" target="_blank">Link {{ $count++ }}</a> </td>
                   <td>{{ $quote->qty }}</td>
+                  <td>{{ $quote->description }}</td>
                   @if ($order-> status != 0)
                       <td>{{ $quote->price_gbp }}</td>
                       <td>{{ $quote->postage_gbp }}</td>
                       <td>{{ $quote->price_bdt }}</td>
                       <td>{{ $quote->tax_bdt }}</td>
                   @endif
-                  <td>{{ $quote->id }}</td>
+                  <td> 
+                    <a class="btn btn-sm btn-warning" href="{{ route('quote.edit', $quote->id) }}">Edit</a> 
+                    <a class="btn btn-sm btn-danger" href="{{ $quote->id }}">Delete</a> 
+                  </td>
                 </tr>
             @endforeach
           </tbody>
