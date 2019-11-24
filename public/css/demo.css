@@ -406,6 +406,14 @@
   margin-bottom: -20px;
 }
 
+.br-top{
+  border-radius: 5px 5px 0 0;
+}
+
+.br{
+  border-radius: 5px;
+}
+
 .sharing-area .btn-twitter {
   background-color: #55acee;
 }

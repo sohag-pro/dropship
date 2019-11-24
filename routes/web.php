@@ -22,3 +22,4 @@ Route::resource('profile', 'ProfileController');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
+Route::post('/status', 'OrdersController@status_change')->name('status');

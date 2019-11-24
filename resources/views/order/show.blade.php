@@ -59,7 +59,7 @@
 @endphp
 @section('content')
 <div class="main main-raised">
-    <div class="alert alert-success">
+    <div class="alert alert-success br-top">
         <div class="container">
           <div class="row text-center">
               <div class="col-md-6">
@@ -101,8 +101,8 @@
                       <td>{{ $quote->tax_bdt }}</td>
                   @endif
                   <td> 
-                    <a class="btn btn-sm btn-warning" href="{{ route('quote.edit', $quote->id) }}">Edit</a> 
-                    <a class="btn btn-sm btn-danger" href="{{ $quote->id }}">Delete</a> 
+                    <a title="Edit" class="btn btn-sm btn-warning" href="{{ route('quote.edit', $quote->id) }}"><i class="material-icons">edit</i></a> 
+                    <a title="Cancel" class="btn btn-sm btn-danger" href="{{ $quote->id }}"><i class="material-icons">delete</i></a> 
                   </td>
                 </tr>
             @endforeach

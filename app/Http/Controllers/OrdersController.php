@@ -122,7 +122,25 @@ class OrdersController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        // $order = Order::findOrFail($id);
+
+        // $request->validate([
+        //     'status' => 'required'
+        // ]);
+
+        // $order->status = $request->status;
+        // $order->update();
+    }
+
+    public function status_change(Request $request)
+    {
+        $id = $request->id;
+        $order = Order::findOrFail($id);
+        if($order->status < 4){
+            $order->status = 8;
+            $order->update();
+        }
+        echo "status Changes";
     }
 
     /**
@@ -133,6 +151,10 @@ class OrdersController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $order = Order::findOrFail($id);
+        if($order->status == 0){
+            $order->delete();
+        }
+        
     }
 }
